@@ -279,3 +279,14 @@ note "kernel config: no in-kernel fragment required (kmod-provided); wireless pa
 note "build config requirement: CONFIG_ALL_KMODS=y (publish full kmod set, keep image lean)"
 
 note "HONOR FUR-602/603 device support ready (ImmortalWrt 25.12.2 / kernel 6.12)."
+#1、兜底强制apk官方源，隔绝vsean
+mkdir -p files/etc/apk/repositories.d
+cat > files/etc/apk/repositories.d/distfeeds.list <<'EOF'
+https://mirrors.vsean.net/openwrt/releases/25.12.2/targets/mediatek/filogic/packages/packages.adb
+https://mirrors.vsean.net/openwrt/releases/25.12.2/packages/aarch64_cortex-a53/base/packages.adb
+https://mirrors.vsean.net/openwrt/releases/25.12.2/targets/mediatek/filogic/kmods/6.12.103-1-b5b7729ffbba3ecdd83f339de8fadfb8/packages.adb
+https://mirrors.vsean.net/openwrt/releases/25.12.2/packages/aarch64_cortex-a53/luci/packages.adb
+https://mirrors.vsean.net/openwrt/releases/25.12.2/packages/aarch64_cortex-a53/packages/packages.adb
+https://mirrors.vsean.net/openwrt/releases/25.12.2/packages/aarch64_cortex-a53/routing/packages.adb
+https://mirrors.vsean.net/openwrt/releases/25.12.2/packages/aarch64_cortex-a53/telephony/packages.adb
+EOF
