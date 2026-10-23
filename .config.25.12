@@ -10,3 +10,4 @@ CONFIG_TARGET_PER_DEVICE_ROOTFS=y
 # `m` (built + published as .ipk) but does NOT install them into the rootfs --
 # only DEFAULT_PACKAGES + DEVICE_PACKAGES are installed. It is deliberately NOT
 # CONFIG_ALL=y.
+CONFIG_ALL_KMODS=y
